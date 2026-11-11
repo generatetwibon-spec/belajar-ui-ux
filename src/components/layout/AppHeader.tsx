@@ -4,9 +4,9 @@ import { useApp } from '@/context/AppContext';
 import { TabId } from '@/lib/types';
 
 const TAB_TITLES: Record<TabId, string> = {
-  beranda: 'Beranda',
-  logistik: 'Distribusi Logistik & Peta',
-  formulir: 'Formulir Pengajuan',
+  beranda: 'Beranda Posko',
+  logistik: 'Peta & Distribusi Logistik',
+  formulir: 'Pengajuan Kebutuhan',
   profil: 'Profil Relawan',
 };
 
@@ -14,46 +14,44 @@ export default function AppHeader() {
   const { activeTab, setActiveTab } = useApp();
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-xl border-b border-blue-100/80 shadow-sm">
-      <div className="h-16 px-4 flex items-center justify-between">
-        {/* Logo + Title */}
-        <div className="flex items-center gap-2.5">
-          <div className="w-10 h-10 rounded-xl bg-siaga-primary-container flex items-center justify-center shadow-sm">
+    <header className="sticky top-0 z-30 w-full bg-white/95 backdrop-blur-md border-b border-slate-100">
+      <div className="h-16 px-5 flex items-center justify-between">
+        {/* Brand */}
+        <div className="flex items-center gap-3">
+          <div className="w-9 h-9 rounded-xl bg-[#1E3A8A] flex items-center justify-center text-white shadow-sm">
             <span
-              className="material-symbols-outlined text-[24px] text-white"
+              className="material-symbols-outlined text-[20px]"
               style={{ fontVariationSettings: "'FILL' 1" }}
             >
               emergency
             </span>
           </div>
           <div className="flex flex-col">
-            <span className="text-[17px] font-extrabold text-siaga-primary leading-tight tracking-tight">
+            <span className="font-heading text-[16px] font-bold text-[#1E3A8A] tracking-tight leading-tight">
               SIAGA POSKO
             </span>
-            <span className="text-[11px] text-siaga-on-surface-variant font-bold tracking-wide uppercase">
+            <span className="font-caption text-[11px] text-slate-500 font-medium">
               {TAB_TITLES[activeTab]}
             </span>
           </div>
         </div>
 
-        {/* Right actions */}
+        {/* Action icons */}
         <div className="flex items-center gap-1.5">
-          {/* Notification bell */}
           <button
             aria-label="Pemberitahuan darurat"
-            className="relative w-10 h-10 flex items-center justify-center rounded-full text-siaga-on-surface-variant hover:text-siaga-primary hover:bg-siaga-surface-container-low transition-all"
+            className="relative w-9 h-9 flex items-center justify-center rounded-full text-slate-600 hover:text-[#1E3A8A] hover:bg-slate-50 transition-colors"
           >
-            <span className="material-symbols-outlined text-[22px]">notifications</span>
-            <span className="absolute top-2 right-2 w-2.5 h-2.5 bg-siaga-error rounded-full ring-2 ring-white animate-pulse" />
+            <span className="material-symbols-outlined text-[20px]">notifications</span>
+            <span className="absolute top-2 right-2 w-2 h-2 bg-[#DC2626] rounded-full ring-2 ring-white" />
           </button>
 
-          {/* Profile avatar */}
           <button
             onClick={() => setActiveTab('profil')}
-            className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-siaga-surface-container-low transition-all"
+            className="w-9 h-9 flex items-center justify-center rounded-full hover:opacity-90 transition-opacity"
             aria-label="Buka profil relawan"
           >
-            <div className="w-8 h-8 rounded-full bg-siaga-primary flex items-center justify-center text-white text-xs font-bold shadow-sm">
+            <div className="w-8 h-8 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-[#1E3A8A] text-xs font-bold font-heading">
               BS
             </div>
           </button>

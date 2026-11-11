@@ -14,34 +14,34 @@ export default function BottomNavBar() {
   const { activeTab, setActiveTab } = useApp();
 
   return (
-    <nav className="sticky bottom-0 z-40 w-full bg-white/95 backdrop-blur-xl border-t border-blue-100/80 shadow-[0_-4px_16px_rgba(0,0,0,0.04)]">
-      <div className="flex items-center justify-around h-16 px-2">
+    <nav className="sticky bottom-0 z-30 w-full bg-white/95 backdrop-blur-md border-t border-slate-100 shadow-[0_-2px_12px_rgba(15,23,42,0.03)]">
+      <div className="flex items-center justify-around h-16 px-3">
         {NAV_ITEMS.map((item) => {
           const isActive = activeTab === item.id;
           return (
             <button
               key={item.id}
               onClick={() => setActiveTab(item.id)}
-              className={`flex flex-col items-center justify-center flex-1 py-1 transition-all duration-200 relative ${
+              className={`flex flex-col items-center justify-center flex-1 py-1 transition-all relative ${
                 isActive
-                  ? 'text-siaga-primary font-bold scale-105'
-                  : 'text-gray-500 hover:text-siaga-primary font-medium'
+                  ? 'text-[#1E3A8A] font-semibold'
+                  : 'text-slate-400 hover:text-slate-700 font-normal'
               }`}
               aria-current={isActive ? 'page' : undefined}
             >
               <span
-                className="material-symbols-outlined text-[24px] transition-all"
+                className="material-symbols-outlined text-[23px] transition-transform duration-150"
                 style={{
                   fontVariationSettings: isActive ? "'FILL' 1" : "'FILL' 0",
                 }}
               >
                 {item.icon}
               </span>
-              <span className="text-[11px] leading-tight tracking-tight mt-0.5">
+              <span className="font-caption text-[11px] leading-tight mt-1 tracking-tight">
                 {item.label}
               </span>
               {isActive && (
-                <span className="w-1.5 h-1.5 rounded-full bg-siaga-primary mt-0.5" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#1E3A8A] mt-0.5" />
               )}
             </button>
           );

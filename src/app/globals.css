@@ -1,78 +1,91 @@
 @import "tailwindcss";
 
 @theme {
-  --color-siaga-primary: #00236f;
-  --color-siaga-primary-container: #1e3a8a;
-  --color-siaga-primary-fixed: #dce1ff;
-  --color-siaga-primary-fixed-dim: #b6c4ff;
-  --color-siaga-on-primary: #ffffff;
-  --color-siaga-on-primary-container: #90a8ff;
-  --color-siaga-on-primary-fixed: #00164e;
-  --color-siaga-on-primary-fixed-variant: #264191;
-  --color-siaga-inverse-primary: #b6c4ff;
+  /* ============================================================
+     DESIGN SYSTEM 2 WARNA (UTS UI/UX TEMA 4)
+     - Primary: Deep Navy Blue #1E3A8A (WCAG AAA 10.8:1)
+     - Secondary: Ocean Teal #0D9488 (WCAG AA 4.54:1)
+     ============================================================ */
+  --color-primary: #1E3A8A;
+  --color-primary-hover: #172554;
+  --color-primary-light: #EFF6FF;
+  --color-primary-subtle: #DBEAFE;
 
-  --color-siaga-secondary: #006a63;
-  --color-siaga-secondary-container: #99efe5;
-  --color-siaga-secondary-fixed: #9cf2e8;
-  --color-siaga-secondary-fixed-dim: #80d5cb;
-  --color-siaga-on-secondary: #ffffff;
-  --color-siaga-on-secondary-container: #006f67;
-  --color-siaga-on-secondary-fixed: #00201d;
-  --color-siaga-on-secondary-fixed-variant: #00504a;
+  --color-secondary: #0D9488;
+  --color-secondary-hover: #0F766E;
+  --color-secondary-light: #F0FDFA;
+  --color-secondary-subtle: #CCFBF1;
 
-  --color-siaga-tertiary: #5d0004;
-  --color-siaga-tertiary-container: #87000a;
-  --color-siaga-tertiary-fixed: #ffdad6;
-  --color-siaga-tertiary-fixed-dim: #ffb4ab;
-  --color-siaga-on-tertiary: #ffffff;
-  --color-siaga-on-tertiary-container: #ff8b80;
-  --color-siaga-on-tertiary-fixed: #410002;
-  --color-siaga-on-tertiary-fixed-variant: #93000b;
+  /* Neutral scale (Minimalist White & Slate) */
+  --color-surface-white: #FFFFFF;
+  --color-surface-soft: #F8FAFC;
+  --color-surface-muted: #F1F5F9;
+  --color-border-subtle: #E2E8F0;
+  --color-text-main: #0F172A;
+  --color-text-muted: #64748B;
+  --color-text-caption: #94A3B8;
 
-  --color-siaga-error: #ba1a1a;
-  --color-siaga-error-container: #ffdad6;
-  --color-siaga-on-error: #ffffff;
-  --color-siaga-on-error-container: #93000a;
+  /* Status Colors */
+  --color-danger: #DC2626;
+  --color-danger-light: #FEF2F2;
 
-  --color-siaga-surface: #f8f9ff;
-  --color-siaga-surface-dim: #cbdbf5;
-  --color-siaga-surface-bright: #f8f9ff;
-  --color-siaga-surface-variant: #d3e4fe;
-  --color-siaga-surface-container-lowest: #ffffff;
-  --color-siaga-surface-container-low: #eff4ff;
-  --color-siaga-surface-container: #e5eeff;
-  --color-siaga-surface-container-high: #dce9ff;
-  --color-siaga-surface-container-highest: #d3e4fe;
-  --color-siaga-surface-tint: #4059aa;
-
-  --color-siaga-on-surface: #0b1c30;
-  --color-siaga-on-surface-variant: #444651;
-  --color-siaga-on-background: #0b1c30;
-  --color-siaga-background: #f8f9ff;
-
-  --color-siaga-outline: #757682;
-  --color-siaga-outline-variant: #c5c5d3;
-  --color-siaga-inverse-surface: #213145;
-  --color-siaga-inverse-on-surface: #eaf1ff;
-
+  /* Fonts */
+  --font-heading: var(--font-jakarta), 'Plus Jakarta Sans', sans-serif;
   --font-sans: var(--font-inter), 'Inter', sans-serif;
 
-  --shadow-card: 0 1px 4px rgba(0, 35, 111, 0.06), 0 2px 8px rgba(0, 35, 111, 0.04);
-  --shadow-card-elevated: 0 2px 8px rgba(0, 35, 111, 0.1), 0 4px 16px rgba(0, 35, 111, 0.06);
-  --shadow-nav: 0 -2px 12px rgba(0, 0, 0, 0.06);
-  --shadow-header: 0 1px 8px rgba(0, 0, 0, 0.04);
-  --shadow-toast: 0 4px 24px rgba(0, 0, 0, 0.12);
+  /* Soft Minimalist Shadows */
+  --shadow-minimal: 0 1px 3px rgba(15, 23, 42, 0.04), 0 1px 2px rgba(15, 23, 42, 0.02);
+  --shadow-card: 0 4px 16px -2px rgba(15, 23, 42, 0.04), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
+  --shadow-floating: 0 12px 32px -4px rgba(15, 23, 42, 0.08);
+  --shadow-mockup: 0 25px 60px -15px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(15, 23, 42, 0.06);
 }
 
-/* Custom Utilities & Resets */
+/* ============================================================
+   TYPOGRAPHY SPEC (UTS SOAL 5)
+   - H1: 24px Bold
+   - H2: 18px Semi-Bold
+   - Body: 14px Regular
+   - Caption: 12px Regular
+   ============================================================ */
+.font-h1 {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.font-h2 {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.font-body {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+}
+
+.font-caption {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 400;
+}
+
+/* Base resets */
 html, body {
   width: 100%;
   margin: 0;
   padding: 0;
   overscroll-behavior: none;
-  background-color: #0b1c30; /* Dark premium desktop backdrop */
-  font-family: var(--font-inter), 'Inter', sans-serif;
-  -webkit-font-smoothing: antialiased;
+  font-family: var(--font-sans);
+  color: #0F172A;
+  background-color: #F8FAFC;
 }
 
 ::-webkit-scrollbar {
@@ -83,12 +96,12 @@ html, body {
   scrollbar-width: none;
 }
 
-/* Material Symbols Outlined font class */
+/* Material Symbols icon styling */
 .material-symbols-outlined {
   font-family: 'Material Symbols Outlined' !important;
   font-weight: normal;
   font-style: normal;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 1;
   letter-spacing: normal;
   text-transform: none;
@@ -100,20 +113,14 @@ html, body {
   vertical-align: middle;
 }
 
-/* Tab & Card animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Subtle fade in */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.animate-fade-in-up {
-  animation: fadeInUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.animate-fade-in {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .tabular-nums {

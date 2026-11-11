@@ -26,17 +26,16 @@ function MobileStatusBar() {
   }, []);
 
   return (
-    <div className="hidden sm:flex items-center justify-between px-6 pt-3 pb-1 text-slate-800 text-[13px] font-semibold select-none bg-white">
+    <div className="hidden sm:flex items-center justify-between px-6 pt-3 pb-1.5 text-slate-700 text-[12px] font-semibold select-none bg-white border-b border-slate-100">
       <span>{time}</span>
-      {/* Dynamic Island / Notch Pill */}
-      <div className="w-24 h-4 bg-slate-900 rounded-full flex items-center justify-center">
-        <span className="w-2 h-2 rounded-full bg-slate-700 mr-2" />
-        <span className="w-2 h-2 rounded-full bg-blue-900/60" />
+      {/* Minimalist Camera Notch */}
+      <div className="w-20 h-3.5 bg-slate-100 rounded-full flex items-center justify-center">
+        <span className="w-1.5 h-1.5 rounded-full bg-slate-300" />
       </div>
-      <div className="flex items-center gap-1.5 text-[14px]">
-        <span className="material-symbols-outlined text-[15px]">signal_cellular_4_bar</span>
-        <span className="material-symbols-outlined text-[15px]">wifi</span>
-        <span className="material-symbols-outlined text-[16px]">battery_full</span>
+      <div className="flex items-center gap-1.5 text-slate-500">
+        <span className="material-symbols-outlined text-[14px]">signal_cellular_4_bar</span>
+        <span className="material-symbols-outlined text-[14px]">wifi</span>
+        <span className="material-symbols-outlined text-[14px]">battery_full</span>
       </div>
     </div>
   );
@@ -46,33 +45,37 @@ function MainApp() {
   const { activeTab } = useApp();
 
   return (
-    <div className="min-h-screen bg-slate-950 sm:py-8 sm:px-4 flex items-center justify-center">
-      {/* Desktop presentation header & frame */}
-      <div className="w-full max-w-[430px] flex flex-col items-center">
-        {/* Top desktop badge */}
-        <div className="hidden sm:flex items-center justify-between w-full px-2 mb-3 text-slate-400 text-xs font-medium">
-          <div className="flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-slate-300 font-bold">SIAGA POSKO MOBILE</span>
+    <div className="min-h-screen bg-slate-100/80 sm:py-10 sm:px-4 flex items-center justify-center">
+      {/* Container */}
+      <div className="w-full max-w-[420px] flex flex-col items-center">
+        {/* Top Minimal Header on Desktop */}
+        <div className="hidden sm:flex items-center justify-between w-full px-2 mb-3 text-slate-500 text-xs">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-[#1E3A8A]" />
+            <span className="font-semibold text-slate-800 tracking-wide font-heading">
+              SIAGA POSKO
+            </span>
+            <span className="text-slate-400">•</span>
+            <span className="text-slate-500">Tema 4: Public Crisis Relief</span>
           </div>
-          <span className="bg-slate-800 px-2 py-0.5 rounded text-[10px] uppercase font-bold text-slate-300">
-            Preview Mobile View
+          <span className="bg-white border border-slate-200 px-2 py-0.5 rounded text-[11px] font-medium text-slate-600 shadow-sm">
+            Mobile 390 × 844
           </span>
         </div>
 
-        {/* Smartphone Shell Frame */}
-        <div className="w-full bg-siaga-surface text-siaga-on-surface sm:rounded-[36px] sm:shadow-[0_20px_70px_rgba(0,0,0,0.6)] sm:border-[8px] sm:border-slate-800 flex flex-col min-h-screen sm:min-h-[840px] sm:max-h-[920px] overflow-hidden relative">
-          {/* Simulated Mobile Status Bar on Desktop */}
+        {/* Minimalist Smartphone Frame (White / Clean) */}
+        <div className="w-full bg-white text-slate-900 sm:rounded-[36px] sm:shadow-[0_20px_50px_rgba(30,58,138,0.08)] sm:border-[6px] sm:border-white sm:ring-1 sm:ring-slate-200/80 flex flex-col min-h-screen sm:min-h-[820px] sm:max-h-[880px] overflow-hidden relative">
+          {/* Status Bar */}
           <MobileStatusBar />
 
-          {/* Sticky Header */}
+          {/* Sticky Clean Header */}
           <AppHeader />
 
           {/* Floating Toast Notification */}
           <ToastContainer />
 
-          {/* Screen Content (Scrollable Container) */}
-          <main className="flex-1 w-full overflow-y-auto overflow-x-hidden bg-siaga-surface">
+          {/* Screen Content */}
+          <main className="flex-1 w-full overflow-y-auto overflow-x-hidden bg-white">
             {activeTab === 'beranda' && <BerandaScreen />}
             {activeTab === 'logistik' && <LogistikScreen />}
             {activeTab === 'formulir' && <FormulirScreen />}
@@ -82,9 +85,9 @@ function MainApp() {
           {/* Sticky Bottom Navigation Bar */}
           <BottomNavBar />
 
-          {/* Home Indicator Bar */}
-          <div className="hidden sm:flex justify-center py-1.5 bg-white">
-            <div className="w-32 h-1 bg-slate-300 rounded-full" />
+          {/* Minimalist Home Indicator */}
+          <div className="hidden sm:flex justify-center py-2 bg-white border-t border-slate-100">
+            <div className="w-28 h-1 bg-slate-200 rounded-full" />
           </div>
         </div>
       </div>
