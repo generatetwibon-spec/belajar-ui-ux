@@ -58,13 +58,14 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   // Load from Supabase if configured
   useEffect(() => {
-    if (!isSupabaseConfigured || !supabase) return;
+    const client = supabase;
+    if (!isSupabaseConfigured || !client) return;
 
     const fetchData = async () => {
       setIsLoading(true);
       const [poskoRes, reqRes] = await Promise.all([
-        supabase.from('posko').select('*').order('jarak_km'),
-        supabase.from('logistic_requests').select('*').order('created_at', { ascending: false }),
+        client.from('posko').select('*').order('jarak_km'),
+        client.from('logistic_requests').select('*').order('created_at', { ascending: false }),
       ]);
       if (poskoRes.data) setPoskoList(poskoRes.data as Posko[]);
       if (reqRes.data) setRequests(reqRes.data as LogisticRequest[]);
@@ -74,7 +75,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     fetchData();
 
     // Realtime subscription for posko changes
-    const channel = supabase
+    const channel = client
       .channel('posko-changes')
       .on(
         'postgres_changes',
@@ -94,7 +95,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       .subscribe();
 
     // Realtime subscription for new logistic requests
-    const reqChannel = supabase
+    const reqChannel = client
       .channel('request-changes')
       .on(
         'postgres_changes',
@@ -106,8 +107,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
       .subscribe();
 
     return () => {
-      supabase.removeChannel(channel);
-      supabase.removeChannel(reqChannel);
+      client.removeChannel(channel);
+      client.removeChannel(reqChannel);
     };
   }, []);
 
